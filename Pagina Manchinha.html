@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dermalavina</title>
+  <link rel="icon" type="image/png" href="imagens/logo.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início | Dermalavina</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #c0d2f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #cddbf0;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #3b3b61;
+    }
+
+    letra {
+      background-color: #cddbf000;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+
+    /* menu lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #a6bde4;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #222;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #8ca6d8;
+    }
+
+    .sidebar .exit {
+      color: #557fbe;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* botão do menu */
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* grid de cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+.banner-container {
+  position: relative;
+  max-width: 1299px; /* largura máxima */
+  margin: 20px auto; /* centraliza */
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.banner-container img {
+  width: 100%;
+  display: block;
+}
+
+  /* footer minimalista - estilização limpa e responsiva */
+.site-footer {
+  border-top: 1px solid #cddbf0;
+  background: #cddbf0;               /* sem cor de fundo chamativa */
+  color: #333;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 0.95rem;
+  padding: 18px 16px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* esquerda: logo + nome */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.footer-logo {
+  width: 52px;          /* ajuste de tamanho da logo */
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 6px;   /* sutil */
+}
+
+/* nome da marca, discrição */
+.brand-name {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* centro: créditos e nota */
+.footer-center {
+  text-align: center;
+  flex: 1 1 360px; /* permite crescer / encolher mantendo boa largura mínima */
+}
+
+.credits {
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* direita: voltar ao topo */
+.footer-right {
+  min-width: 120px;
+  text-align: right;
+}
+
+.back-to-top {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  color: #333;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+
+/* hover sutil */
+.back-to-top:hover,
+.back-to-top:focus {
+  background: #8aaff0;
+  outline: none;
+}
+
+/* responsividade: em telas pequenas, empilha em colunas */
+@media (max-width: 720px) {
+  .footer-inner {
+    gap: 12px;
+  }
+  .footer-left { min-width: 0; }
+  .footer-right { text-align: left; }
+  .footer-center { order: 3; width: 100%; margin-top: 8px; }
+  .footer-left { order: 1; }
+  .footer-right { order: 2; }
+}
+
+      .centralizado {
+  text-align: center;
+    }
+
+.info-section {
+  text-align: center;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.info-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #000000;
+}
+
+.info-block {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.info-block img {
+  width: 300px;
+  border-radius: 8px;
+}
+
+.info-block div {
+  max-width: 600px;
+  text-align: left;
+}
+
+.info-block h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.info-block p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Responsividade para celular */
+@media (max-width: 768px) {
+  .info-block {
+    flex-direction: column; /* muda de lado a lado para coluna */
+    text-align: center;     /* centraliza no mobile */
+  }
+
+  .info-block img {
+    width: 90%;       /* ocupa quase a largura toda */
+    max-width: 300px; /* mas não passa de 300px */
+    margin: 0 auto;   /* centraliza */
+  }
+
+  .info-block div {
+    text-align: center; /* centraliza texto no celular */
+    max-width: 100%;
+  }
+}
+
+    
+    </style>
+</head>
+<body>
+
+  <span class="menu-btn" onclick="openNav()">&#9776;</span>
+
+  <header>Dermalavina - Manchinhas</header>
+
+  <div class="banner-container">
+  <div class="banner-slide fade">
+      <img src="imagens/manchinha.png" alt="questionario 1">
+    </a>
+  </div>
+  </div>
+
+    <!-- menu lateral -->
+  <div id="mySidebar" class="sidebar">
+    <letra>Atalhos</letra>
+    <p>   </p>
+    <a href="Pagina Campanhas Publicas.html">Campanhas Públicas</a>
+    <a href="Pagina Medico.html">Médicos</a>
+    <a href="Pagina Noticias.html">Notícias</a>
+    <a href="Pagina Perguntas Frequentes.html">Perguntas Frequentes</a>
+    <a href="Pagina Prevencao.html">Prevenção</a>
+    <a href="Pagina Tenho Cancer.html">Tenho câncer, e agora?</a>
+    <a href="Pagina Sobre Cancer.html">Mais sobre o câncer</a>
+    <a href="Pagina Dermalavina.html">Nós, Dermalavina</a>
+    <a href="index.html" class="exit">Voltar ao Início</a>
+  </div>
+
+
+<section class="info-section">
+  <h2>O que são manchas na pele?</h2>
+  
+  <div class="info-block">
+    <img src="imagens/manchas.png" alt="Ilustração câncer de pele">
+    <div>
+      <h3>conhecidas também como pintinhas</h3>
+      <p>
+        As manchas encontradas na nossa pele são um aglomerado de células produtoras de pigmento
+(melanócitos) que aparecem como sinais ou elevações na pele. Elas podem se manifestar por diversos
+fatores e causas, por isso é sempre importante ficar atento a qualquer mudança.
+      </p>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <div>
+      <h3>Pintas ou nevos</h3>
+      <p>
+        São como sinais de nascença ou pequenas bolinhas escuras na pele. As pintinhas podem apresentar
+leves elevações e normalmente não mudam muito. Elas são causadas pelos melanócitos, as células que
+pigmentam a nossa pele.
+Podemos pensar nelas como grãos de feijão na terra: se sempre ficam iguais, tudo bem; se começam a
+mudar de forma, é hora de ver o que está acontecendo.
+
+      </p>
+    </div>
+    <img src="imagens/nevos.png" alt="Imagem câncer">
+  </div>
+
+  <div class="info-block">
+    <img src="imagens/sardas.png" alt="Ilustração câncer de pele">
+    <div>
+      <h3>Sardas</h3>
+      <p>
+        Pontinhos marrons que aparecem principalmente no rosto, braços e ombros. Elas geralmente
+aparecem mais em pessoas de pele clara, que tenham uma predisposição e com sol. As sardinhas não
+são ou virarão câncer, apenas mostram que a pele é sensível ao sol.
+      </p>
+    </div>
+  </div>
+
+<div class="info-block">
+    <div>
+      <h3>Melasma</h3>
+      <p>Manchas escuras, geralmente no rosto, em áreas expostas ao sol. Afeta majoritariamente mulheres,
+por questões hormonais, como o uso de anticoncepcionais femininos, à gravidez e etc, porém, a
+exposição ao sol contribui ainda mais para o surgimento do melasma.
+</p>
+    </div>
+    <img src="imagens/melasma.png" alt="Imagem câncer">
+  </div>
+
+<div class="info-block">
+    <img src="imagens/idade.png" alt="Ilustração câncer de pele">
+    <div>
+      <h3>Manchas da idade</h3>
+      <p>
+        O lentigo solar ou melanoses solares, popularmente conhecidas como manchas da idade ou manchas
+senis, são manchinhas marrons que podem surgir com o tempo, principalmente em mãos, braços e
+rosto. São lesões que não apresentam risco à saúde. A melanose pode apresentar diferentes tons de
+castanho, com um tamanho variado de milímetros ou alguns centímetros de diâmetro. São mais
+frequentes em pessoas de pele clara que foram muito expostas ao sol durante a vida.
+
+      </p>
+    </div>
+  </div>
+
+<div class="info-block">
+    <div>
+      <h3>Verrugas</h3>
+      <p>As verrugas são pequenas lesões na pele causadas por alguns subtipos do papilomavírus humano
+(HPV). Elas são “bolinhas” que crescem para fora da pele e geralmente não são perigosas, mas
+precisam ser diferenciadas do câncer de pele.
+</p>
+    </div>
+    <img src="imagens/verrugas.png" alt="Imagem câncer">
+  </div>
+
+<section class="info-section">
+  <h2>Principais causas para o surgimento de manchas</h2>
+  
+  <div class="info-block">
+    <img src="imagens/alteracao.png" alt="Ilustração câncer de pele">
+    <div>
+      <h3>Alterações Hormonais</h3>
+      <p>
+        Os hormônios possuem grande influência no funcionamento do nosso corpo, eles são responsáveis por
+controlar várias funções, como crescimento, reprodução e metabolismo, fome, estresse etc. Quando há
+um desequilíbrio hormonal, nossa pele pode sofrer uma hiperpigmentação em áreas diversas do corpo.
+
+      </p>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <div>
+      <h3>Exposição solar prolongada</h3>
+      <p>A exposição excessiva ao sol leva ao desenvolvimento de manchas escuras, especialmente em áreas
+como rosto, pescoço e mãos. Segundo a Organização Mundial da Saúde (OMS), o sol contribui para
+80% do envelhecimento da pele, evidenciando sua importância na prevenção.
+</p>
+    </div>
+    <img src="imagens/solar1.png" alt="Imagem câncer">
+  </div>
+
+  <div class="info-block">
+    <img src="imagens/alergia.png" alt="Ilustração câncer de pele">
+    <div>
+      <h3>Alergias</h3>
+      <p>
+        Manchas de alergia são reações cutâneas, como urticária, que surgem quando o corpo entra em
+contato com um alérgeno (alimentos, medicamentos, etc.) e libera histaminas, causando inflamação,
+coceira e inchaço na pele.
+
+      </p>
+    </div>
+  </div>
+
+<div class="info-block">
+    <div>
+      <h3>Infecções</h3>
+      <p>Infecções fúngicas, virais ou bacterianas, como micoses e herpes, podem causar manchas
+esbranquiçadas ou avermelhadas na pele.
+
+</p>
+    </div>
+    <img src="imagens/infeccao.png" alt="Imagem câncer">
+  </div>
+
+  <div class="info-block">
+    <img src="imagens/diabetes.png" alt="Ilustração câncer de pele">
+    <div>
+      <h3>Diabetes</h3>
+      <p>
+        Sinais de diabetes ou pré-diabetes podem incluir manchas na pele relacionadas como, a Acantose
+Nigricans (manchas escuras e aveludadas nas dobras da pele), a dermopatia diabética (manchas
+arredondadas e amarronzadas nas canelas), xantelasmas (caroços amarelados nas pálpebras) e feridas
+que não cicatrizam.
+      </p>
+    </div>
+  </div>
+
+<div class="info-block">
+    <div>
+      <h3>Melanoma</h3>
+      <p>Melanoma é um tipo grave de câncer de pele que forma manchas escuras e irregulares. O INCA
+estima para o ano de 2023 cerca de 8.980 novos casos de melanoma no Brasil.
+
+</p>
+    </div>
+    <img src="imagens/melanoma1.png" alt="Imagem câncer">
+  </div>
+
+  <div class="info-block">
+    <img src="imagens/micose.png" alt="Ilustração câncer de pele">
+    <div>
+      <h3>Micose</h3>
+      <p>
+        As manchas de micose são lesões cutâneas causadas por fungos, apresentando-se tipicamente como
+manchas claras (pitiríase versicolor) que descamam e podem escurecer sob o sol, ou como manchas
+avermelhadas, elevadas e com bordas bem definidas que coçam (dermatofitose ou tinea).
+      </p>
+    </div>
+  </div>
+
+<div class="info-block">
+    <div>
+      <h3>Hanseníase (Lepra)</h3>
+      <p>Lepra é uma infecção causada pela bactéria Mycobacterium leprae, que leva ao surgimento de
+sintomas como manchas esbranquiçadas na pele e alteração dos nervos periféricos, o que diminui a
+sensibilidade à dor, toque e calor. As partes do corpo mais afetadas são os olhos, as mãos e os pés,
+mas as feridas também podem aparecer no rosto, orelhas, nádegas, braços, pernas e costas e a
+transmissão acontece por meio do contato com as secreções da pessoa contaminada.
+</p>
+    </div>
+    <img src="imagens/lepra.png" alt="Imagem câncer">
+  </div>
+
+  <div class="info-block">
+    <img src="imagens/queloide.png" alt="Ilustração câncer de pele">
+    <div>
+      <h3>Queloide</h3>
+      <p>
+        O queloide é o crescimento anormal de uma cicatriz.
+É uma alteração benigna, na qual ocorre uma perda dos mecanismos de controle que normalmente
+regulam o equilíbrio do reparo e regeneração de tecidos. São cicatrizes altas, escuras e muitas vezes
+dolorosas (nódulos fibrosos).
+      </p>
+    </div>
+  </div>
+
+
+
+  
+<!-- FOOTER -->
+<footer class="site-footer" id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <img src="imagens/logo.png" alt="Logo Dermalavina" class="footer-logo">
+      <div class="brand-name">Dermalavina</div>
+    </div>
+
+    <div class="footer-center">
+      <div class="credits">Site desenvolvido por: <strong>Laura, Nathasha e Vittória</strong> — 2025</div>
+      <div class="note">Contra desinformação e exclusão digital</div>
+    </div>
+
+    <div class="footer-right">
+      <a href="#top" class="back-to-top" aria-label="Voltar ao topo">↑ Voltar ao topo</a>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    // fecha o menu clicando fora
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("mySidebar");
+      const menuBtn = document.querySelector(".menu-btn");
+      if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+        sidebar.style.width = "0";
+      }
+    });
+
+    // slider automático
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("banner-slide");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 4000); // troca a cada 4 segundos
+}
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notícias | Dermalavina</title>
+  <link rel="icon" type="image/png" href="imagens/logo.png">
+  <style>
+    :root{
+      --primary:#c0d2f0; /* azul principal */
+      --primary-light:#ffffff; /* azul claro */
+      --primary-dark:#000000; /* azul escuro */
+      --muted:#000000;
+      --bg:#c0d2f0;
+      --card:#a7c3f5;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden; /* evita barra horizontal */
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin:0;
+      background:#c0d2f0;
+      color:var(--primary-dark);
+      line-height:1.5;
+    }
+
+    /* menu lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      background-color: #a6bde4;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 20px;
+    }
+
+    .readmore {
+  color: #191f42 !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.readmore:hover,
+.readmore:focus {
+  color: #191f42 !important;
+  text-decoration: underline;
+}
+
+
+    .sidebar a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #222;
+      display: block;
+      transition: 0.2s;
+    }
+    .sidebar a:hover {
+      background-color: #8ca6d8;
+    }
+    .sidebar .exit {
+      color: #557fbe;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    letra {
+      background-color: #cddbf000;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #000000;
+    }
+    header {
+      background-color: #cddbf0;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #3b3b61;
+    }
+
+
+/* nome da marca, discrição */
+.brand-name {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.credits {
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+
+
+
+.back-to-top {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  color: #333;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+
+/* hover sutil */
+.back-to-top:hover,
+.back-to-top:focus {
+  background: #8aaff0;
+  outline: none;
+}
+
+    /* footer */
+  /* footer */
+/* footer */
+.site-footer {
+  border-top: 1px solid #cddbf0;
+  background: #cddbf0;
+  color: #333;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 0.95rem;
+  padding: 18px 0;   /* tira espaço lateral, só em cima/baixo */
+  width: 100%;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;  /* centraliza o conteúdo */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 16px; /* adiciona espaço interno só no conteúdo */
+}
+
+
+    .footer-left { display: flex; align-items: center; gap: 12px; min-width: 180px; }
+    .footer-logo { width: 52px; height: auto; display: block; object-fit: contain; border-radius: 6px; }
+    .brand-name { font-weight: 600; letter-spacing: 0.2px; }
+    .footer-center { text-align: center; flex: 1 1 360px; }
+    .credits { font-size: 0.95rem; color: #222; }
+    .note { font-size: 0.85rem; color: #666; margin-top: 4px; }
+    .footer-right { min-width: 120px; text-align: right; }
+    .back-to-top {
+      display: inline-block;
+      padding: 6px 10px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      color: #333;
+      transition: background .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .back-to-top:hover, .back-to-top:focus { background: #8aaff0; outline: none; }
+
+    @media (max-width: 720px) {
+      .footer-inner { gap: 12px; }
+      .footer-left { min-width: 0; }
+      .footer-right { text-align: left; }
+      .footer-center { order: 3; width: 100%; margin-top: 8px; }
+      .footer-left { order: 1; }
+      .footer-right { order: 2; }
+    }
+
+
+
+
+
+</style>
+</head>
+
+<header>Dermalavina - Notícias</header>
+
+  <span class="menu-btn" onclick="openNav()">&#9776;</span>
+
+  <!-- menu lateral -->
+  <div id="mySidebar" class="sidebar">
+    <letra>Atalhos</letra>
+    <p>   </p>
+    <a href="Pagina Campanhas Publicas.html">Campanhas Públicas</a>
+    <a href="Pagina Medico.html">Médicos</a>
+    <a href="Pagina Noticias.html">Notícias</a>
+    <a href="Pagina Perguntas Frequentes.html">Perguntas Frequentes</a>
+    <a href="Pagina Prevencao.html">Prevenção</a>
+    <a href="Pagina Tenho Cancer.html">Tenho câncer, e agora?</a>
+    <a href="Pagina Sobre Cancer.html">Mais sobre o câncer</a>
+    <a href="Pagina Dermalavina.html">Nós, Dermalavina</a>
+    <a href="index.html" class="exit">Voltar ao Início</a>
+  </div>
+
+
+  <style>
+    
+    
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:var(--primary);display:flex;align-items:auto;justify-content:auto;color:#fff;font-weight:700}
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    nav a{color:var(--primary-dark);text-decoration:none;font-weight:600}
+    nav a.active{color:var(--primary)}
+
+    .hero{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:28px 0;flex-wrap:wrap}
+    .hero h1{margin:0;font-size:1.8rem;color:var(--primary-dark)}
+    .subtitle{color:var(--muted);margin-top:6px;font-size:1rem}
+
+    
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 4px 12px rgba(255, 255, 255, 0.05)}
+
+    .news-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--primary-light)}
+    .news-item:last-child{border-bottom:0}
+    .thumb{width:120px;height:78px;border-radius:8px;background:var(--primary-light);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--primary-dark);font-weight:600}
+    .news-content h3{margin:0;font-size:1.1rem;color:var(--primary-dark)}
+    .meta{color:var(--muted);font-size:0.9rem;margin-top:6px}
+    .readmore{display:inline-block;margin-top:8px;color:var(--primary);font-weight:700;text-decoration:none}
+    .readmore:focus,.readmore:hover{text-decoration:underline}
+
+
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr;}
+      .hero{flex-direction:column;align-items:flex-start}
+      .thumb{display:none}
+    }
+
+  </style>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Notícias sobre Câncer de Pele</h1>
+        <div class="subtitle">Últimas pesquisas, campanhas públicas e avanços no diagnóstico e tratamento.</div>
+      </div>
+      
+    </section>
+  
+    <section class="grid">
+      <div>
+        <div class="card">
+          <h2 style="margin-top:0;color:var(--primary-dark)">Últimas notícias</h2>
+          <div id="newsList">
+            <article class="news-item" data-tags="campanha,prevenção,protetor, solar, incentiva" data-title="Campanha nacional incentiva uso diário de protetor solar">
+  <div class="thumb">
+    <img src="https://d1xe7tfg0uwul9.cloudfront.net/sbd-portal-2024/wp-content/uploads/2021/08/cropped-logo-sbd-oticia-site-.png.webp" 
+         alt="notícia" 
+         style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+  </div>
+
+  <div class="news-content">
+    <h3>Sociedade Brasileira de Dermatologia discute sobre o Câncer de Pele</h3>
+    <div class="meta">Diagnóstico</div>
+    <p>“A Sociedade Brasileira de Dermatologia descreve quais são os tipos de câncer de pele”</p>
+    <a href="https://www.sbd.org.br/doencas/cancer-da-pele/" class="readmore">Saiba Mais →</a>
+  </div>
+</article>
+</div>
+<article class="news-item" data-tags="campanha,prevenção" data-title="Dezembro Laranja: prevenção e detecção precoce do câncer de pele">
+  <div class="thumb">
+<img src="https://cro-rj.org.br/images/noticias/capa24072a.jpg"
+    alt="Campanha prevenção câncer de pele" 
+         style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+  </div>
+  <div class="news-content">
+    <h3>Detectar o dignóstico precoce e prevenção do </h3>
+    <div class="meta">05 Jan 2023 • Campanha & Prevenção câncer de pele</div>
+    <p>O Ministério da Saúde faz alerta sobre a alta exposição ao sol.</p>
+    <a href="https://www.gov.br/saude/pt-br/assuntos/saude-brasil/prevencao-ao-cancer/dezembro-laranja-prevencao-e-deteccao-precoce-do-cancer-de-pele" class="readmore">Saiba Mais →</a>
+  </div>
+</article>
+<!--- Noticia 3 -->
+<article class="news-item" data-tags="campanhas públicas" data-title="Desembro laranja: campanha do Câncer de pele">
+  <div class="thumb">
+    <img src="https://sbd.org.br/campanha/wp-content/uploads/2024/10/Logo_218x112_fundo_claro.png" 
+         alt="Tratamento melanoma" 
+         style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+  </div>
+  <div class="news-content">
+    <h3>Sociedade Brasileira de Dermatologia anuncia a campanha parao combate ao Câncer de pele</h3>
+    <div class="meta">20 Abr 2025 • Campanha Pública</div>
+    <p>No dia 7 de dezembro, das 9h às 15h, será realizado um dia de atendimento gratuito para orientação, diagnóstico e tratamento do câncer de pele.</p>
+    <a href="https://sbd.org.br/campanha/dezembrolaranja/" class="readmore"> Saiba Mais →</a>
+  </div>
+</article>
+
+
+
+  <article class="news-item" data-tags="prevenção,diagnóstico" data-title="Câncer de pele representa 30% de todos os tumores malignos registrados no país">
+  <div class="thumb">
+    <img src="https://cro-rj.org.br/images/noticias/capa24072a.jpg" 
+         alt="Câncer de Pele" 
+         style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+  </div>
+  <div class="news-content">
+    <h3>Ministério da Saúde faz pesquisa, e descobre dados importantes sobre o Câncer de Pele</h3>
+    <div class="meta">28 Fev 2025 • Diagnóstico e Prevenção</div>
+    <p>Câncer de pele: responsável por 30% de todos os casos de tumor no país. Descubra os cuidados essenciais para prevenir e identificar a doença.</p>
+    <a href="https://www.gov.br/saude/pt-br/assuntos/saude-com-ciencia/noticias/2025/fevereiro/cancer-de-pele-representa-30-de-todos-os-tumores-malignos-registrados-no-pais" class="readmore">Saiba Mais →</a>
+  </div>
+</article>
+
+            <article class="news-item" data-tags="diagnóstico" data-title="Câncer de pele: veja 12 mitos e verdades sobre esse tipo de tumor">
+  <div class="thumb">
+    <img src="https://www.cnnbrasil.com.br/images/log-cnn-brasil-transparent.svg?w=117&h=116&crop=1" 
+         alt="Triagem de lesões de pele" 
+         style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+  </div>
+  <div class="news-content">
+    <h3>CNN fala sobre mitos e verdades relacionadas ao Câncer de pele.</h3>
+    <div class="meta">17 Set 2025 • Prevenção</div>
+    <p>Câncer de pele: desvendando 12 mitos e verdades sobre esse tipo de tumor. Proteja-se com informações precisas.</p>
+    <a href="https://www.cnnbrasil.com.br/saude/cancer-de-pele-veja-12-mitos-e-verdades-sobre-esse-tipo-de-tumor/" class="readmore">Saiba Mais →</a>
+  </div>
+</article>
+      <article class="news-item" data-tags="prevenção" data-title="Com a chegada do verão, prevenção é fundamental para evitar o câncer de pele">
+              <div class="thumb">
+              <img src="https://cro-rj.org.br/images/noticias/capa24072a.jpg" 
+                  alt="Prevenção de Câncer de Pele" 
+                  style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                   </div>
+              <div class="news-content">
+                <h3>Ministério da Saúde da dicas de como se previnir na chegada do verão.</h3>
+                <div class="meta">20 Dez 2024 • Tratamento</div>
+                <p>"Verão chegando: como se proteger do câncer de pele? Descubra os cuidados essenciais para aproveitar a estação com segurança.".</p>
+                <a href="https://www.gov.br/saude/pt-br/assuntos/noticias/2024/dezembro/com-a-chegada-do-verao-prevencao-e-fundamental-para-evitar-o-cancer-de-pele#:~:text=Radia%C3%A7%C3%A3o%20ultravioleta&text=Evitar%20o%20sol%20%C3%A9%20a,filtro%20solar%20e%20roupas%20adequadas." class="readmore">Saiba Mais→</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+</section>
+    <footer class="site-footer" id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <img src="imagens/logo.png" alt="Logo Dermalavina" class="footer-logo">
+      <div class="brand-name">Dermalavina</div>
+    </div>
+
+    <div class="footer-center">
+      <div class="credits">Site desenvolvido por: <strong>Laura, Nathasha e Vittória</strong> — 2025</div>
+      <div class="note">Contra desinformação e exclusão digital</div>
+    </div>
+
+    <div class="footer-right">
+      <a href="#top" class="back-to-top" aria-label="Voltar ao topo">↑ Voltar ao topo</a>
+    </div>
+  </div>
+</footer>
+       
+  <script>
+    const searchInput=document.getElementById('searchInput');
+    const searchBtn=document.getElementById('searchBtn');
+    const newsList=document.getElementById('newsList');
+    const articles=[...newsList.querySelectorAll('.news-item')];
+
+    function applyFilters(){
+      const checked=[...document.querySelectorAll('.filter:checked')].map(c=>c.value.toLowerCase());
+      const q=searchInput.value.trim().toLowerCase();
+      articles.forEach(a=>{
+        const title=a.getAttribute('data-title').toLowerCase();
+        const tags=a.getAttribute('data-tags').toLowerCase();
+        const matchQuery=q===''||title.includes(q)||a.innerText.toLowerCase().includes(q);
+        const matchTags=checked.length===0||checked.some(t=>tags.includes(t));
+        a.style.display=(matchQuery&&matchTags)?'flex':'none';
+      });
+    }
+
+    searchBtn.addEventListener('click',e=>{e.preventDefault();applyFilters();});
+    searchInput.addEventListener('keyup',e=>{if(e.key==='Enter')applyFilters();});
+    document.querySelectorAll('.filter').forEach(ch=>ch.addEventListener('change',applyFilters));
+
+// menu lateral
+    function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.querySelector(".menu-btn").style.display = "none"; // esconde o botão
+}
+
+document.addEventListener("click", function(event) {
+  const sidebar = document.getElementById("mySidebar");
+  const menuBtn = document.querySelector(".menu-btn");
+  if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+    sidebar.style.width = "0";
+    menuBtn.style.display = "block"; // mostra o botão de novo
+  }
+});
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dermalavina - Mudanças na Pele</title>
+  <link rel="icon" type="image/png" href="imagens/logo.png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #c0d2f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #cddbf0;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #3b3b61;
+    }
+
+    letra {
+      background-color: #cddbf000;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    /* menu lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #a6bde4;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #222;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #8ca6d8;
+    }
+
+    .sidebar .exit {
+      color: #557fbe;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* botão do menu */
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* grid de cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .banner-container {
+      position: relative;
+      max-width: 1299px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .banner-container img {
+      width: 100%;
+      display: block;
+    }
+
+    #questionario {
+      max-width: 600px;
+      margin: 30px auto;
+      background-color: #a7c3f5;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 18px;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #568ae6;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* popup */
+    #popup {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    #popup-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    #popup-msg {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+  /* footer minimalista - estilização limpa e responsiva */
+.site-footer {
+  border-top: 1px solid #cddbf0;
+  background: #cddbf0;               /* sem cor de fundo chamativa */
+  color: #333;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 0.95rem;
+  padding: 18px 16px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* esquerda: logo + nome */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.footer-logo {
+  width: 52px;          /* ajuste de tamanho da logo */
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 6px;   /* sutil */
+}
+
+/* nome da marca, discrição */
+.brand-name {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* centro: créditos e nota */
+.footer-center {
+  text-align: center;
+  flex: 1 1 360px; /* permite crescer / encolher mantendo boa largura mínima */
+}
+
+.credits {
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* direita: voltar ao topo */
+.footer-right {
+  min-width: 120px;
+  text-align: right;
+}
+
+.back-to-top {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  color: #333;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+
+/* hover sutil */
+.back-to-top:hover,
+.back-to-top:focus {
+  background: #8aaff0;
+  outline: none;
+}
+
+/* responsividade: em telas pequenas, empilha em colunas */
+@media (max-width: 720px) {
+  .footer-inner {
+    gap: 12px;
+  }
+  .footer-left { min-width: 0; }
+  .footer-right { text-align: left; }
+  .footer-center { order: 3; width: 100%; margin-top: 8px; }
+  .footer-left { order: 1; }
+  .footer-right { order: 2; }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <span class="menu-btn" onclick="openNav()">&#9776;</span>
+
+  <header>Dermalavina - Mudanças na Pele</header>
+
+  <div class="banner-container">
+    <div class="banner-slide fade">
+      <img src="imagens/mudancanapele.png" alt="questionario 1">
+    </div>
+  </div>
+
+  <!-- menu lateral -->
+  <div id="mySidebar" class="sidebar">
+    <letra>Atalhos</letra>
+    <p>   </p>
+    <a href="Pagina Campanhas Publicas.html">Campanhas Públicas</a>
+    <a href="Pagina Medico.html">Médicos</a>
+    <a href="Pagina Noticias.html">Notícias</a>
+    <a href="Pagina Perguntas Frequentes.html">Perguntas Frequentes</a>
+    <a href="Pagina Prevencao.html">Prevenção</a>
+    <a href="Pagina Tenho Cancer.html">Tenho câncer, e agora?</a>
+    <a href="Pagina Sobre Cancer.html">Mais sobre o câncer</a>
+    <a href="Pagina Dermalavina.html">Nós, Dermalavina</a>
+    <a href="index.html" class="exit">Voltar ao Início</a>
+  </div>
+
+  <h2 style="text-align: center;">Lista de Checagem</h2>
+  <p style="text-align: center;"> Este questionário <b>não substitui a consulta médica</b>. Ele serve apenas como um <b>alerta</b> para cuidar melhor da sua pele.</p>
+
+  <div id="questionario">
+    <form id="checklist">
+      <label><input type="checkbox" data-risco="true"> Você notou alguma mancha nova na sua pele nos últimos meses?</label><br><br>
+      <label><input type="checkbox" data-risco="true"> Você tem alguma ferida que não cicatriza há mais de 15 dias?</label><br><br>
+      <label><input type="checkbox" data-risco="true"> Você já percebeu algum caroço ou nódulo embaixo da pele que não desaparece?</label><br><br>
+      <label><input type="checkbox" data-risco="true"> Sua pele apresenta coceira, dor ou sangramento em algum ponto específico?</label><br><br>
+      <label><input type="checkbox" data-risco="true"> Alguma área da sua pele está endurecida, inchada ou com aspecto diferente do restante?</label><br><br>
+      <label><input type="checkbox" data-risco="true"> Alguma mancha ou pinta antiga mudou de cor, tamanho ou formato recentemente?</label><br><br>
+
+      <button type="button" onclick="avaliar()">Ver resultado</button>
+
+      <div id="popup">
+        <div id="popup-content">
+          <span id="popup-msg"></span>
+          <button onclick="fecharPopup()">Fechar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <img src="imagens/logo.png" alt="Logo Dermalavina" class="footer-logo">
+      <div class="brand-name">Dermalavina</div>
+    </div>
+
+    <div class="footer-center">
+      <div class="credits">Site desenvolvido por: <strong>Laura, Nathasha e Vittória</strong> — 2025</div>
+      <div class="note">Contra desinformação e exclusão digital</div>
+    </div>
+
+    <div class="footer-right">
+      <a href="#top" class="back-to-top" aria-label="Voltar ao topo">↑ Voltar ao topo</a>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    // fecha o menu clicando fora
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("mySidebar");
+      const menuBtn = document.querySelector(".menu-btn");
+      if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+        sidebar.style.width = "0";
+      }
+    });
+
+    // slider automático
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("banner-slide");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 4000); // troca a cada 4 segundos
+    }
+
+    // função para avaliar o questionário
+    function avaliar() {
+      const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+      let riscosMarcados = 0;
+
+      checkboxes.forEach(c => {
+        if (c.checked && c.dataset.risco === "true") {
+          riscosMarcados++;
+        }
+      });
+
+      const msg = document.getElementById("popup-msg");
+      const popup = document.getElementById("popup");
+
+      if (riscosMarcados >= 3) {
+        msg.innerText = "🚨 Importante: Você identificou vários sinais de risco. Procure um dermatologista o quanto antes.";
+        msg.style.color = "red";
+      } else if (riscosMarcados >= 1) {
+        msg.innerText = "⚠️ Atenção: Você identificou possíveis sinais. Recomendamos observar com atenção e, se persistirem, procurar um dermatologista.";
+        msg.style.color = "orange";
+      } else {
+        msg.innerText = "✅ Nenhum sinal suspeito foi identificado. Continue observando sua pele regularmente.";
+        msg.style.color = "green";
+      }
+
+      popup.style.display = "block";
+    }
+
+    function fecharPopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prevenção | Dermalavina</title>
+  <link rel="icon" type="image/png" href="imagens/logo.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prevenção | Dermalavina</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #c0d2f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #cddbf0;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #3b3b61;
+    }
+
+    letra {
+      background-color: #cddbf000;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+
+    /* menu lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #a6bde4;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #222;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #8ca6d8;
+    }
+
+    .sidebar .exit {
+      color: #557fbe;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* botão do menu */
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* grid de cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+ .prevention {
+    padding: 40px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+  }
+
+  .prevention-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  .prevention-left {
+    flex: 2;
+  }
+
+  .prevention-left h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #000000;
+  }
+
+  .prevention-left ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+
+  .prevention-left li {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .prevention-right {
+    flex: 1;
+    background-color: #a7c3f5;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .prevention-right h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #2e2e5c;
+  }
+
+  .prevention-right ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .prevention-right li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Responsivo */
+  @media screen and (max-width: 800px) {
+    .prevention-container {
+      flex-direction: column;
+    }
+  }
+
+.centralizado {
+  text-align: center;
+    }
+
+    .prevention-right a {
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* mantém a cor do texto normal */
+  cursor: pointer;       /* mostra que é clicável */
+}
+
+.prevention-right a:hover {
+  color: #2929b3; /* ou qualquer cor de destaque ao passar o mouse */
+}
+
+.prevention-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.prevention-right li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.prevention-right li img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+  /* footer minimalista - estilização limpa e responsiva */
+.site-footer {
+  border-top: 1px solid #cddbf0;
+  background: #cddbf0;               /* sem cor de fundo chamativa */
+  color: #333;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 0.95rem;
+  padding: 18px 16px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* esquerda: logo + nome */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.footer-logo {
+  width: 52px;          /* ajuste de tamanho da logo */
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 6px;   /* sutil */
+}
+
+/* nome da marca, discrição */
+.brand-name {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* centro: créditos e nota */
+.footer-center {
+  text-align: center;
+  flex: 1 1 360px; /* permite crescer / encolher mantendo boa largura mínima */
+}
+
+.credits {
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* direita: voltar ao topo */
+.footer-right {
+  min-width: 120px;
+  text-align: right;
+}
+
+.back-to-top {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  color: #333;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+
+/* hover sutil */
+.back-to-top:hover,
+.back-to-top:focus {
+  background: #8aaff0;
+  outline: none;
+}
+
+/* responsividade: em telas pequenas, empilha em colunas */
+@media (max-width: 720px) {
+  .footer-inner {
+    gap: 12px;
+  }
+  .footer-left { min-width: 0; }
+  .footer-right { text-align: left; }
+  .footer-center { order: 3; width: 100%; margin-top: 8px; }
+  .footer-left { order: 1; }
+  .footer-right { order: 2; }
+}
+
+
+    </style>
+</head>
+<body>
+
+  <span class="menu-btn" onclick="openNav()">&#9776;</span>
+
+  <header>Dermalavina - Prevenção</header>
+
+
+    <!-- menu lateral -->
+  <div id="mySidebar" class="sidebar">
+    <letra>Atalhos</letra>
+    <p>   </p>
+    <a href="Pagina Campanhas Publicas.html">Campanhas Públicas</a>
+    <a href="Pagina Medico.html">Médicos</a>
+    <a href="Pagina Noticias.html">Notícias</a>
+    <a href="Pagina Perguntas Frequentes.html">Perguntas Frequentes</a>
+    <a href="Pagina Prevencao.html">Prevenção</a>
+    <a href="Pagina Tenho Cancer.html">Tenho câncer, e agora?</a>
+    <a href="Pagina Sobre Cancer.html">Mais sobre o câncer</a>
+    <a href="Pagina Dermalavina.html">Nós, Dermalavina</a>
+    <a href="index.html" class="exit">Voltar ao Início</a>
+  </div>
+
+<section class="prevention">
+  <div class="prevention-container">
+    
+    <!-- Coluna da esquerda -->
+    <div class="prevention-left">
+      <h2 class="centralizado">Como evitar o Câncer de Pele?</h2>
+      <h3 class="centralizado">Recomendações para uma boa prevenção:</h3>
+      <ul>
+        <li>Evitar exposição prolongada ao sol entre 10h e 16h.</li>
+        <li>Procurar lugares com sombra.</li>
+        <li>Usar proteção adequada, como roupas, bonés ou chapéus de abas largas, óculos escuros com proteção UV, sombrinhas e barracas.</li>
+        <li>Aplicar o filtro (protetor) solar na pele com fator de proteção 30, no mínimo. É importante reaplicar a cada duas horas.</li>
+        <li>Usar filtro solar próprio para os lábios.</li>
+        <li>Em dias nublados, também é importante o uso de proteção.</li>
+        <li>As tatuagens podem esconder lesões, portanto, merecem atenção.</li>
+      </ul>
+    </div>
+
+    <!-- Coluna da direita -->
+<div class="prevention-right">
+  <h3>Saiba mais</h3>
+  <ul>
+    <li>
+      <img src="imagens/protetor.png" alt="Protetor Solar">
+      <a href="https://www.tuasaude.com/saiba-qual-e-o-melhor-protetor-solar-para-cada-pele/">Protetor Solar: Como aplicar e qual escolher?</a>
+    </li>
+    <li>
+      <img src="imagens/calor.png" alt="Dezembro Laranja">
+      <a href="https://sbd.org.br/campanha/dezembrolaranja/">Dezembro Laranja: Cuidados Redobrados no verão</a>
+    </li>
+    <li>
+      <img src="imagens/roupasol.png" alt="Proteção da pele">
+      <a href="https://www.skincancer.org/pt/skin-cancer-prevention/sun-protection/sun-protective-clothing/">Como escolher outros tipos de proteção para a sua pele?</a>
+    </li>
+  </ul>
+</div>
+
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <img src="imagens/logo.png" alt="Logo Dermalavina" class="footer-logo">
+      <div class="brand-name">Dermalavina</div>
+    </div>
+
+    <div class="footer-center">
+      <div class="credits">Site desenvolvido por: <strong>Laura, Nathasha e Vittória</strong> — 2025</div>
+      <div class="note">Contra desinformação e exclusão digital</div>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    // fecha o menu clicando fora
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("mySidebar");
+      const menuBtn = document.querySelector(".menu-btn");
+      if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+        sidebar.style.width = "0";
+      }
+    });
+
+    // slider automático
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("banner-slide");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 4000); // troca a cada 4 segundos
+}
+  </script>
+</body>
+</html>

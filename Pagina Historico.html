@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dermalavina - Hábitos de cuidado</title>
+  <link rel="icon" type="image/png" href="imagens/logo.png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #c0d2f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #cddbf0;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #3b3b61;
+    }
+
+    letra {
+      background-color: #cddbf000;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #a6bde4;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #222;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #8ca6d8;
+    }
+
+    .sidebar .exit {
+      color: #557fbe;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .banner-container {
+      position: relative;
+      max-width: 1299px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .banner-container img {
+      width: 100%;
+      display: block;
+    }
+
+    h2, p {
+      text-align: center;
+    }
+
+    #questionario {
+      max-width: 600px;
+      margin: 30px auto;
+      background-color: #a7c3f5;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 18px;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #568ae6;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #popup {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    #popup-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    #popup-msg {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <span class="menu-btn" onclick="openNav()">&#9776;</span>
+
+  <header>Dermalavina - Histórico de Saúde</header>
+
+  <div class="banner-container">
+    <div class="banner-slide fade">
+      <img src="imagens/historico.png" alt="questionario 1">
+    </div>
+  </div>
+
+  <div id="mySidebar" class="sidebar">
+    <letra>Atalhos</letra>
+    <a href="Pagina Campanhas Publicas.html">Campanhas Públicas</a>
+    <a href="Pagina Medico.html">Médicos</a>
+    <a href="Pagina Noticias.html">Notícias</a>
+    <a href="Pagina Perguntas Frequentes.html">Perguntas Frequentes</a>
+    <a href="Pagina Prevencao.html">Prevenção</a>
+    <a href="Pagina Tratamento.html">Tratamento</a>
+    <a href="Pagina Tenho Cancer.html">Tenho câncer, e agora?</a>
+    <a href="Pagina Sobre Cancer.html">Mais sobre o câncer</a>
+    <a href="index.html" class="exit">Voltar ao Início</a>
+  </div>
+
+  <h2>Lista de Checagem</h2>
+  <p>Este questionário <b>não substitui a consulta médica</b>. Ele serve apenas como um <b>alerta</b> para cuidar melhor da sua pele.</p>
+
+  <div id="questionario">
+    <form id="checklist">
+      <label><input type="checkbox" name="q1" data-risco="false"> Você já procurou um médico ou posto de saúde por causa da pele?</label><br><br>
+      <label><input type="checkbox" name="q2" data-risco="false"> Você já recebeu alguma orientação no posto de saúde sobre cuidados com a pele?</label><br><br>
+      <label><input type="checkbox" name="q3" data-risco="false"> Algum parente próximo já teve câncer de pele ou outro problema grave na pele?</label><br><br>
+      <label><input type="checkbox" name="q4" data-risco="false"> Você já fez exames dermatológicos regularmente?</label><br><br>
+
+      <button type="button" onclick="avaliar()">Ver resultado</button>
+    </form>
+  </div>
+
+  <div id="popup">
+    <div id="popup-content">
+      <span id="popup-msg"></span>
+      <button onclick="fecharPopup()">Fechar</button>
+    </div>
+  </div>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("mySidebar");
+      const menuBtn = document.querySelector(".menu-btn");
+      if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+        sidebar.style.width = "0";
+      }
+    });
+
+function avaliar() {
+  const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+  
+  // Guarda quais perguntas foram marcadas
+  const marcadas = [];
+  checkboxes.forEach((c, index) => {
+    if (c.checked) {
+      marcadas.push(index + 1); // +1 porque os índices começam em 0
+    }
+  });
+
+  const msg = document.getElementById("popup-msg");
+  const popup = document.getElementById("popup");
+
+  // Lógica personalizada
+  if (marcadas.includes(3) && marcadas.length === 1) {
+    // Somente a pergunta 3
+    msg.innerText = "⚠️ Atenção: Há histórico familiar que merece cuidado. Observe sua saúde e procure informações ou acompanhamento médico, mas não há motivo para desespero.";
+    msg.style.color = "orange";
+  } else if (marcadas.includes(1) && marcadas.includes(2) && marcadas.includes(4)) {
+    // Perguntas 1,2 e 4
+    msg.innerText = "✅ Ótimo! Você está atento(a) aos sinais de sua pele e tomando medidas para cuidar dela. Continue assim!";
+    msg.style.color = "green";
+  } else if (marcadas.length === 4) {
+    // Todas marcadas
+    msg.innerText = "✅ Excelente! Você está totalmente atento(a) aos sinais de risco e ao cuidado com a pele.";
+    msg.style.color = "green";
+  } else if (marcadas.length === 0) {
+    // Nenhuma marcada
+    msg.innerText = "⚠️ Nenhum sinal foi marcado. Fique atento(a) à sua pele e procure acompanhamento médico se notar alterações.";
+    msg.style.color = "red";
+  } else {
+    // Qualquer outra combinação
+    msg.innerText = "⚠️ Atenção: Você marcou alguns sinais. Observe com cuidado e, se necessário, consulte um dermatologista.";
+    msg.style.color = "orange";
+  }
+
+  popup.style.display = "block";
+}
+
+
+    function fecharPopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    // Slider automático (ainda que só tenha 1 imagem)
+    let slideIndex = 0;
+    showSlides();
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("banner-slide");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 4000);
+    }
+  </script>
+</body>
+</html>

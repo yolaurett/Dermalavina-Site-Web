@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobre o câncer | Dermalavina</title>
+  <link rel="icon" type="image/png" href="imagens/logo.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre câncer | Dermalavina</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #c0d2f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #cddbf0;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #3b3b61;
+    }
+
+    letra {
+      background-color: #cddbf000;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+
+    /* menu lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #a6bde4;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #222;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #8ca6d8;
+    }
+
+    .sidebar .exit {
+      color: #557fbe;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* botão do menu */
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* grid de cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+.info-section {
+  text-align: center;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.info-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #000000;
+}
+
+.info-block {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.info-block img {
+  width: 300px;
+  border-radius: 8px;
+}
+
+.info-block div {
+  max-width: 600px;
+  text-align: left;
+}
+
+.info-block h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.info-block p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Responsividade para celular */
+@media (max-width: 768px) {
+  .info-block {
+    flex-direction: column; /* muda de lado a lado para coluna */
+    text-align: center;     /* centraliza no mobile */
+  }
+
+  .info-block img {
+    width: 90%;       /* ocupa quase a largura toda */
+    max-width: 300px; /* mas não passa de 300px */
+    margin: 0 auto;   /* centraliza */
+  }
+
+  .info-block div {
+    text-align: center; /* centraliza texto no celular */
+    max-width: 100%;
+  }
+}
+
+.centralizado {
+  text-align: center;
+    }
+
+    .centralizado {
+  text-align: center;
+  list-style-position: inside;
+  padding-left: 0; /* remove o recuo padrão */
+}
+
+.mitos-verdades {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.mitos-verdades h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* duas colunas */
+  gap: 20px;
+}
+
+.item p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 1.8em;
+  margin: 30px 0 15px;
+  color: #222;
+}
+
+.lista {
+  max-width: 800px;       /* limita largura */
+  margin: 0 auto 30px;    /* centraliza bloco */
+  padding-left: 20px;     /* afasta marcador */
+  line-height: 1.6;
+  font-size: 1rem;
+  list-style-type: "➤ ";  /* troca bolinha por check */
+  color: #333;
+}
+
+.lista li {
+  margin-bottom: 10px;
+}
+
+  /* footer minimalista - estilização limpa e responsiva */
+.site-footer {
+  border-top: 1px solid #cddbf0;
+  background: #cddbf0;               /* sem cor de fundo chamativa */
+  color: #333;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 0.95rem;
+  padding: 18px 16px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* esquerda: logo + nome */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.footer-logo {
+  width: 52px;          /* ajuste de tamanho da logo */
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 6px;   /* sutil */
+}
+
+/* nome da marca, discrição */
+.brand-name {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* centro: créditos e nota */
+.footer-center {
+  text-align: center;
+  flex: 1 1 360px; /* permite crescer / encolher mantendo boa largura mínima */
+}
+
+.credits {
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* direita: voltar ao topo */
+.footer-right {
+  min-width: 120px;
+  text-align: right;
+}
+
+.back-to-top {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  color: #333;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+
+/* hover sutil */
+.back-to-top:hover,
+.back-to-top:focus {
+  background: #8aaff0;
+  outline: none;
+}
+
+/* responsividade: em telas pequenas, empilha em colunas */
+@media (max-width: 720px) {
+  .footer-inner {
+    gap: 12px;
+  }
+  .footer-left { min-width: 0; }
+  .footer-right { text-align: left; }
+  .footer-center { order: 3; width: 100%; margin-top: 8px; }
+  .footer-left { order: 1; }
+  .footer-right { order: 2; }
+}
+
+
+    </style>
+</head>
+<body>
+
+  <span class="menu-btn" onclick="openNav()">&#9776;</span>
+
+  <header>Dermalavina - Mais sobre  câncer</header>
+
+
+    <!-- menu lateral -->
+  <div id="mySidebar" class="sidebar">
+    <letra>Atalhos</letra>
+    <p>   </p>
+    <a href="Pagina Campanhas Publicas.html">Campanhas Públicas</a>
+    <a href="Pagina Medico.html">Médicos</a>
+    <a href="Pagina Noticias.html">Notícias</a>
+    <a href="Pagina Perguntas Frequentes.html">Perguntas Frequentes</a>
+    <a href="Pagina Prevencao.html">Prevenção</a>
+    <a href="Pagina Tenho Cancer.html">Tenho câncer, e agora?</a>
+    <a href="Pagina Sobre Cancer.html">Mais sobre o câncer</a>
+    <a href="Pagina Dermalavina.html">Nós, Dermalavina</a>
+    <a href="index.html" class="exit">Voltar ao Início</a>
+  </div>
+
+<section class="info-section">
+  <h2>Mais sobre o Câncer de pele</h2>
+  
+  <div class="info-block">
+    <img src="imagens/cancer1.png" alt="Ilustração câncer de pele">
+    <div>
+      <h3>O Que é o Câncer?</h3>
+      <p>
+        Câncer de pele é a maneira errada que as células da pele começam a crescer,
+        formando feridas ou manchas que não cicatrizam.<br>
+        Na maioria das vezes, isso acontece por causa da exposição ao sol forte,
+        comum em quem trabalha muito tempo ao ar livre, como na lavoura ou na criação de animais.
+      </p>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <div>
+      <h3>O que é o câncer com analogia!</h3>
+      <p>
+        A pele é como a terra da lavoura: se não for cuidada, o sol forte resseca e estraga.<br>
+        O câncer de pele é como uma erva daninha: começa pequeno, mas, se não for arrancado logo, cresce e se espalha.<br>
+        As pintas e manchas são como sementes: algumas são boas, mas outras podem nascer ruins e precisam de atenção.
+      </p>
+    </div>
+    <img src="imagens/ilustração.png" alt="Imagem câncer">
+  </div>
+
+<h2>Tipos de Câncer</h2>
+
+  <div class="info-block">
+    <img src="imagens/carcinoma1.png" alt="carcinoma">
+    <div>
+      <h3>Carcinoma Basocelular (o mais comum)</h3>
+      <p>
+        É como uma “feridinha” ou “carocinho” que aparece na pele e não cicatriza nunca. Pode sangrar de vez em quando e depois fechar, mas sempre volta.<br>
+        <strong>Comparação:</strong> Imagine uma cerca com um arame enferrujado: você pinta, lixa, mas a ferrugem sempre volta. Esse tipo de câncer é parecido: parece que melhora, mas continua ali.<br>
+        <strong>Importante:</strong> Geralmente cresce devagar e quase nunca se espalha, mas precisa ser tratado cedo.
+      </p>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <div>
+      <h3>Carcinoma Espinocelular</h3>
+      <p>
+        É uma mancha ou ferida que cresce rápido, pode ficar vermelha, áspera, descamar ou formar uma casquinha dura.<br>
+        <strong>Comparação:</strong> Como uma erva daninha no roçado: se você não arranca logo, ela se espalha e toma conta do terreno.<br>
+        <strong>Alerta:</strong> Esse tipo pode se espalhar para dentro do corpo se não for tratado.
+      </p>
+    </div>
+    <img src="imagens/image-removebg-preview.png" alt="Imagem câncer">
+  </div>
+</section>
+
+  <div class="info-block">
+    <img src="imagens/melanoma.png" alt="carcinoma">
+    <div>
+      <h3>Melanoma</h3>
+      <p>É quando uma pinta muda de cor, cresce ou fica com formato estranho. Pode ser preta, marrom, azulada ou até vermelha.<br>
+<strong>Comparação:</strong> É como uma fruta no pomar: se uma laranja começa a apodrecer, ela estraga rápido e pode até estragar outras. O melanoma também pode se espalhar rapidamente para dentro do corpo.<br>
+<strong>Alerta:</strong>É mais raro, mas muito grave. Quanto antes for descoberto, maiores são as chances de ter uma cura.
+      </p>
+    </div>
+  </div>
+
+  <section class="mitos-verdades">
+  <h2>Mitos e Verdades</h2>
+
+  <div class="grid">
+    <div class="item">
+      <p><strong>Também é preciso se proteger dos raios solares em dias nublados.</strong><br>
+      <b>VERDADE.</b> A emissão de raios ultravioletas independe do céu estar ou não encoberto...</p>
+    </div>
+
+    <div class="item">
+      <p><strong>Queimadura pode evoluir para câncer de pele.</strong><br>
+      <b>VERDADE.</b> Esse tipo de dano na pele é comum e grandes queimaduras podem sim causar câncer...</p>
+    </div>
+
+    <div class="item">
+      <p><strong>Na sombra, não é necessário passar filtro solar.</strong><br>
+      <b>MITO.</b> Mesmo na sombra, não estamos livres dos raios ultravioletas.</p>
+    </div>
+
+    <div class="item">
+      <p><strong>O câncer de pele não é letal.</strong><br>
+      <b>MITO.</b> O câncer de pele, especialmente o melanoma, pode ser letal se não for detectado e tratado precocemente...</p>
+    </div>
+
+    <div class="item">
+      <p><strong>Câncer de pele não melanoma pode evoluir para melanoma.</strong><br>
+      <b>MITO.</b> Trata-se de lesões distintas, que surgem em estruturas diferentes do corpo.</p>
+    </div>
+
+    <div class="item">
+      <p><strong>Pessoas jovens não têm câncer de pele.</strong><br>
+      <b>MITO.</b> Apesar de mais comum em pessoas acima dos 40 anos, casos de melanoma podem ocorrer em crianças e jovens...</p>
+    </div>
+
+    <div class="item">
+      <p><strong>O câncer de pele só afeta pessoas de pele clara.</strong><br>
+      <b>MITO.</b> Apesar de ser mais comum em pessoas de pele e olhos claros, o câncer pode afetar todos os tons de pele...</p>
+    </div>
+  </div>
+</section>
+
+
+   <h2 class="titulo">Fatores de Risco</h2>
+<ul class="lista">
+  <li>Pessoas de pele clara, olhos claros, albinos ou sensíveis à ação dos raios solares;</li>
+  <li>Pessoas com história pessoal ou familiar deste câncer;</li>
+  <li>Pessoas com doenças cutâneas prévias;</li>
+  <li>Pessoas que trabalham sob exposição direta ao sol;</li>
+  <li>Exposição prolongada e repetida ao sol;</li>
+  <li>Exposição a câmeras de bronzeamento artificial.</li>
+</ul>
+
+<h2 class="titulo">Medidas de Proteção</h2>
+<ul class="lista">
+  <li>Usar chapéus, camisetas, óculos escuros e protetores solares.</li>
+  <li>Cubra as áreas expostas com roupas apropriadas, como uma camisa de manga comprida, calças e um chapéu de abas largas.</li>
+  <li>Evitar a exposição solar e permanecer na sombra entre 10 e 16 horas (horário de verão).</li>
+  <li>Na praia ou na piscina, usar barracas feitas de algodão ou lona, que absorvem 50% da radiação ultravioleta. As barracas de nylon formam uma barreira pouco confiável: 95% dos raios UV ultrapassam o material.</li>
+  <li>Usar filtros solares diariamente, e não somente em horários de lazer ou de diversão. Utilizar um produto que proteja contra radiação UVA e UVB e tenha um fator de proteção solar (FPS) 30, no mínimo. Reaplicar o produto a cada duas horas ou menos, nas atividades de lazer ao ar livre.</li>
+  <li>Observar regularmente a própria pele, à procura de pintas ou manchas suspeitas.</li>
+  <li>Manter bebês e crianças protegidos do sol. Filtros solares podem ser usados a partir dos seis meses.</li>
+  <li>Consultar um dermatologista uma vez ao ano, no mínimo, para um exame completo.</li>
+  <li>Fotoproteção: a exposição à radiação ultravioleta (UV) tem efeito cumulativo. Ela penetra profundamente na pele, sendo capaz de provocar diversas alterações, como o bronzeamento e o surgimento de pintas, sardas, manchas, rugas e outros problemas.</li>
+</ul>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <img src="imagens/logo.png" alt="Logo Dermalavina" class="footer-logo">
+      <div class="brand-name">Dermalavina</div>
+    </div>
+
+    <div class="footer-center">
+      <div class="credits">Site desenvolvido por: <strong>Laura, Nathasha e Vittória</strong> — 2025</div>
+      <div class="note">Contra desinformação e exclusão digital</div>
+    </div>
+
+    <div class="footer-right">
+      <a href="#top" class="back-to-top" aria-label="Voltar ao topo">↑ Voltar ao topo</a>
+    </div>
+  </div>
+</footer>
+  
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    // fecha o menu clicando fora
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("mySidebar");
+      const menuBtn = document.querySelector(".menu-btn");
+      if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+        sidebar.style.width = "0";
+      }
+    });
+
+    // slider automático
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("banner-slide");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 4000); // troca a cada 4 segundos
+}
+  </script>
+</body>
+</html>

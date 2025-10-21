@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dermalavina</title>
+  <link rel="icon" type="image/png" href="imagens/logo.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início | Dermalavina</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #c0d2f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #cddbf0;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #3b3b61;
+    }
+
+    letra {
+      background-color: #cddbf000;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+
+    /* menu lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #a6bde4;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #222;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #8ca6d8;
+    }
+
+    .sidebar .exit {
+      color: #557fbe;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* botão do menu */
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* grid de cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .centralizado {
+  text-align: center;
+    }
+
+.texto-tratamentos {
+  margin: 0 auto 20px auto;
+  max-width: 800px;  /* mesma largura da box */
+  line-height: 1.6;
+  color: #333;
+  text-align: justify; /* ou 'center', se preferir centralizar */
+}
+
+    .banner-container {
+  position: relative;
+  max-width: 900px; /* largura máxima */
+  margin: 20px auto; /* centraliza */
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.banner-container img {
+  width: 100%;
+  display: block;
+}
+
+.banner-slide {
+  display: none;
+}
+
+  /* footer minimalista - estilização limpa e responsiva */
+.site-footer {
+  border-top: 1px solid #cddbf0;
+  background: #cddbf0;               /* sem cor de fundo chamativa */
+  color: #333;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 0.95rem;
+  padding: 18px 16px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* esquerda: logo + nome */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.footer-logo {
+  width: 52px;          /* ajuste de tamanho da logo */
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 6px;   /* sutil */
+}
+
+/* nome da marca, discrição */
+.brand-name {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* centro: créditos e nota */
+.footer-center {
+  text-align: center;
+  flex: 1 1 360px; /* permite crescer / encolher mantendo boa largura mínima */
+}
+
+.credits {
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* direita: voltar ao topo */
+.footer-right {
+  min-width: 120px;
+  text-align: right;
+}
+
+.back-to-top {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  color: #333;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+
+/* hover sutil */
+.back-to-top:hover,
+.back-to-top:focus {
+  background: #8aaff0;
+  outline: none;
+}
+
+/* responsividade: em telas pequenas, empilha em colunas */
+@media (max-width: 720px) {
+  .footer-inner {
+    gap: 12px;
+  }
+  .footer-left { min-width: 0; }
+  .footer-right { text-align: left; }
+  .footer-center { order: 3; width: 100%; margin-top: 8px; }
+  .footer-left { order: 1; }
+  .footer-right { order: 2; }
+}
+
+    </style>
+</head>
+<body>
+
+  <span class="menu-btn" onclick="openNav()">&#9776;</span>
+
+  <header>Dermalavina - Um pouco sobre nós</header>
+
+
+    <!-- menu lateral -->
+  <div id="mySidebar" class="sidebar">
+    <letra>Atalhos</letra>
+    <p>   </p>
+    <a href="Pagina Campanhas Publicas.html">Campanhas Públicas</a>
+    <a href="Pagina Medico.html">Médicos</a>
+    <a href="Pagina Noticias.html">Notícias</a>
+    <a href="Pagina Perguntas Frequentes.html">Perguntas Frequentes</a>
+    <a href="Pagina Prevencao.html">Prevenção</a>
+    <a href="Pagina Tenho Cancer.html">Tenho câncer, e agora?</a>
+    <a href="Pagina Sobre Cancer.html">Mais sobre o câncer</a>
+    <a href="Pagina Dermalavina.html">Nós, Dermalavina</a>
+    <a href="index.html" class="exit">Voltar ao Início</a>
+  </div>
+
+<h2 class="centralizado">O que é <strong>DERMALAVINA</strong>?</h2>
+
+<div class="texto-tratamentos">
+  <p>O Dermalavina nasceu como um projeto escolar, no qual precisávamos unir os conhecimentos da nossa área técnica, Redes de Computadores, a um problema real. Ao olhar para nossa comunidade, percebemos que os trabalhadores rurais estão entre os mais vulneráveis ao câncer de pele, devido à intensa exposição ao sol e à falta de informação sobre formas de prevenção.
+Nosso propósito é transformar tecnologia em cuidado, criando ferramentas que levem informação clara, acessível e útil para quem mais precisa. Para isso, desenvolvemos também a proposta de um servidor próprio, capaz de manter nosso site funcionando mesmo em regiões sem cobertura de internet. Dessa forma, conseguimos levar conhecimento a comunidades que sofrem com a exclusão digital, tanto pela falta de acesso à rede quanto pelas dificuldades enfrentadas por uma população em sua maioria idosa.
+Acreditamos que, ao espalhar informação de forma acessível, podemos ajudar a salvar vidas e, ao mesmo tempo, diminuir barreiras digitais. O Dermalavina é, acima de tudo, um convite à consciência, ao cuidado com a saúde e à inclusão.</p>
+</div>
+
+<h2 class="centralizado">Quem faz parte do projeto?</h2>
+
+<div class="texto-tratamentos">
+  <p>Nós, estudantes do ensino médio no Instituto Federal de São Paulo campus Pirituba, junto com o orientador Profº Mestre Jairo Almeida e com a coorientadora Profª Doutora Luciana Santos criamos o projeto com muito amor.</p>
+</div>
+
+<div class="banner-container">
+  <div class="banner-slide fade">
+     <a><img src="imagens/membros.png" alt="questionario 1"></a>
+</div>
+</div>
+
+
+  <p class="centralizado">Laura: Pretende seguir na área da tecnologia, como Analista de Desenvolvimento de sistemas.<br>
+  Nathasha: Ama ciências da natureza e sonha em ser biologa desde a infancia <br>Vittória: Cursará direito para exercer o cargo de delegada</p>
+
+
+<!-- FOOTER -->
+<footer class="site-footer" id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <img src="imagens/logo.png" alt="Logo Dermalavina" class="footer-logo">
+      <div class="brand-name">Dermalavina</div>
+    </div>
+
+    <div class="footer-center">
+      <div class="credits">Site desenvolvido por: <strong>Laura, Nathasha e Vittória</strong> — 2025</div>
+      <div class="note">Contra desinformação e exclusão digital</div>
+    </div>
+
+    <div class="footer-right">
+      <a href="#top" class="back-to-top" aria-label="Voltar ao topo">↑ Voltar ao topo</a>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    // fecha o menu clicando fora
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("mySidebar");
+      const menuBtn = document.querySelector(".menu-btn");
+      if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+        sidebar.style.width = "0";
+      }
+    });
+
+    // slider automático
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("banner-slide");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 4000); // troca a cada 4 segundos
+}
+  </script>
+</body>
+</html>

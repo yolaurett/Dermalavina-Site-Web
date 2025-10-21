@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Início | Dermalavina</title>
+  <link rel="icon" type="image/png" href="imagens/logo.png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #c0d2f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #cddbf0;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #3b3b61;
+    }
+
+    letra {
+      background-color: #cddbf000;
+      padding: 15px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    /* menu lateral */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #a6bde4;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #222;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #8ca6d8;
+    }
+
+    .sidebar .exit {
+      color: #557fbe;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    /* botão do menu */
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* grid de cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #a7c3f5;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background-color: #8aaff0;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    /* banners */
+    .banner-container {
+      position: relative;
+      max-width: 900px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .banner-slide { display: none; }
+    .banner-slide img { width: 100%; display: block; }
+    .fade { animation: fadeEffect 1s; }
+
+    @keyframes fadeEffect { from {opacity: 0.4;} to {opacity: 1;} }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 10px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 30px;
+      border-radius: 3px;
+      background-color: rgba(0,0,0,0.3);
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .prev:hover, .next:hover { background-color: rgba(0,0,0,0.6); }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* footer */
+    .site-footer {
+      border-top: 1px solid #cddbf0;
+      background: #cddbf0;
+      color: #333;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-size: 0.95rem;
+      padding: 18px 16px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .footer-left { display: flex; align-items: center; gap: 12px; min-width: 180px; }
+    .footer-logo { width: 52px; height: auto; display: block; object-fit: contain; border-radius: 6px; }
+    .brand-name { font-weight: 600; letter-spacing: 0.2px; }
+    .footer-center { text-align: center; flex: 1 1 360px; }
+    .credits { font-size: 0.95rem; color: #222; }
+    .note { font-size: 0.85rem; color: #666; margin-top: 4px; }
+    .footer-right { min-width: 120px; text-align: right; }
+    .back-to-top {
+      display: inline-block;
+      padding: 6px 10px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      color: #333;
+      transition: background .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .back-to-top:hover, .back-to-top:focus { background: #8aaff0; outline: none; }
+
+    @media (max-width: 720px) {
+      .footer-inner { gap: 12px; }
+      .footer-left { min-width: 0; }
+      .footer-right { text-align: left; }
+      .footer-center { order: 3; width: 100%; margin-top: 8px; }
+      .footer-left { order: 1; }
+      .footer-right { order: 2; }
+    }
+  </style>
+</head>
+<body>
+  <span class="menu-btn" onclick="openNav()">&#9776;</span>
+  <header>Dermalavina</header>
+
+  <!-- BANNERS -->
+  <div class="banner-container">
+    <div class="banner-slide fade">
+      <a href="Pagina Manchinha.html"><img src="imagens/manchinha.png" alt="questionario 1"></a>
+    </div>
+    <div class="banner-slide fade">
+      <a href="Pagina Regraabc.html"><img src="imagens/abcd.png" alt="questionario 2"></a>
+    </div>
+    <div class="banner-slide fade">
+      <a href="Pagina Mudanca.html"><img src="imagens/mudancanapele.png" alt="questionario 3"></a>
+    </div>
+    <div class="banner-slide fade">
+      <a href="Pagina Exposicao.html"><img src="imagens/exposicaosol.png" alt="questionario 4"></a>
+    </div>
+    <div class="banner-slide fade">
+      <a href="Pagina Habitos.html"><img src="imagens/habitos.png" alt="questionario 5"></a>
+    </div>
+    <div class="banner-slide fade">
+      <a href="Pagina Historico.html"><img src="imagens/historico.png" alt="questionario 6"></a>
+    </div>
+
+    <!-- Setas -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <!-- menu lateral -->
+  <div id="mySidebar" class="sidebar">
+    <letra>Atalhos</letra>
+    <p>   </p>
+    <a href="Pagina Campanhas Publicas.html">Campanhas Públicas</a>
+    <a href="Pagina Medico.html">Médicos</a>
+    <a href="Pagina Noticias.html">Notícias</a>
+    <a href="Pagina Perguntas Frequentes.html">Perguntas Frequentes</a>
+    <a href="Pagina Prevencao.html">Prevenção</a>
+    <a href="Pagina Tenho Cancer.html">Tenho câncer, e agora?</a>
+    <a href="Pagina Sobre Cancer.html">Mais sobre o câncer</a>
+    <a href="Pagina Dermalavina.html">Nós, Dermalavina</a>
+    <a href="index.html" class="exit">Voltar ao Início</a>
+  </div>
+
+  <!-- cards principais -->
+  <div class="grid">
+    <a href="Pagina Campanhas Publicas.html" class="card">
+      <img src="imagens/campanhaspublicas.png" alt="icone medico">
+      <p>Campanhas Públicas</p>
+    </a>
+    <a href="Pagina Medico.html" class="card">
+      <img src="imagens/medicos.png" alt="icone medico">
+      <p>Médicos</p>
+    </a>
+    <a href="Pagina Noticias.html" class="card">
+      <img src="imagens/noticias.png" alt="icone noticias">
+      <p>Notícias</p>
+    </a>
+    <a href="Pagina Perguntas Frequentes.html" class="card">
+      <img src="imagens/perguntasfrequentes.png" alt="icone perguntas">
+      <p>Perguntas Frequentes</p>
+    </a>
+    <a href="Pagina Prevencao.html" class="card">
+      <img src="imagens/prevencao.png" alt="icone prevencao">
+      <p>Prevenção</p>
+    </a>
+    <a href="Pagina Tenho Cancer.html" class="card">
+      <img src="imagens/tenhocancer.png" alt="icone tenho cancer">
+      <p>Tenho câncer, e agora?</p>
+    </a>
+    <a href="Pagina Sobre Cancer.html" class="card">
+      <img src="imagens/sobrecancer.png" alt="icone sobre cancer">
+      <p>Mais sobre o câncer</p>
+    </a>
+    <a href="Pagina Dermalavina.html" class="card">
+      <img src="imagens/logo.png" alt="icone dermalavina">
+      <p>Nós, Dermalavina</p>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <img src="imagens/logo.png" alt="Logo Dermalavina" class="footer-logo">
+        <div class="brand-name">Dermalavina</div>
+      </div>
+      <div class="footer-center">
+        <div class="credits">Site desenvolvido por: <strong>Laura, Nathasha e Vittória</strong> — 2025</div>
+        <div class="note">Contra desinformação e exclusão digital</div>
+      </div>
+      <div class="footer-right">
+        <a href="#top" class="back-to-top" aria-label="Voltar ao topo">↑ Voltar ao topo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // menu lateral
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("mySidebar");
+      const menuBtn = document.querySelector(".menu-btn");
+      if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+        sidebar.style.width = "0";
+      }
+    });
+
+    // slider com setas
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) { showSlides(slideIndex += n); }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("banner-slide");
+      if (n > slides.length) {slideIndex = 1;}
+      if (n < 1) {slideIndex = slides.length;}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
+
+    // troca automática a cada 5s
+    setInterval(() => { plusSlides(1); }, 5000);
+  </script>
+</body>
+</html>
